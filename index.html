@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rosmatt Kenya - Best Electronics, Smartphones, and Laptops in Kenya.">
+    <title>Rosmatt Kenya | Electronics & Gadgets</title>
+    
+    <!-- Google Fonts for Aesthetic Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. CSS VARIABLES (THEMING ENGINE)
+           ========================================= */
+        :root {
+            /* Default Theme: Royal Blue & Orange (Trust & Action) */
+            --primary-color: #0056b3; 
+            --accent-color: #ff9900;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --whatsapp-green: #25D366;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background 0.3s ease;
+        }
+
+        /* =========================================
+           2. NAVIGATION & HEADER
+           ========================================= */
+        .top-banner {
+            background: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .logo span { color: var(--accent-color); }
+
+        /* Desktop Nav */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active { color: var(--primary-color); }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Call Button Style */
+        .btn-call {
+            background-color: var(--text-main);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cart-trigger {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: var(--accent-color);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Categories Navigation */
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary-color);
+            padding: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .categories-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        .categories-nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           ========================================= */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
+
+        .btn-hero {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-hero:hover { transform: scale(1.05); }
+
+        /* =========================================
+           4. PAGE STRUCTURE (TABS)
+           ========================================= */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .section-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           5. PRODUCT LAYOUT & CARDS
+           ========================================= */
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .category-header h2 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        /* Video Ad Container */
+        .ad-video-wrapper {
+            width: 100%;
+            height: 300px;
+            background-color: #000;
+            margin-bottom: 30px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .ad-video-wrapper iframe, .ad-video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .ad-placeholder-text {
+            color: white;
+            font-size: 1.5rem;
+            border: 2px dashed #555;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 15px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* MKOPA BADGE */
+        .badge-mkopa {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #009688, #4CAF50);
+            color: white;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 4px;
+            z-index: 2;
+        }
+        
+        .badge-offer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 1rem;
+            margin: 0 0 5px 0;
+            color: var(--text-main);
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-info .brand {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .price-box {
+            margin: 10px 0;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .old-price {
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: #aaa;
+            margin-left: 5px;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: var(--text-main);
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-add-cart:hover { background-color: var(--accent-color); }
+
+        /* =========================================
+           6. PRODUCT MODAL
+           ========================================= */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--radius);
+            max-width: 90%;
+            width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            display: flex;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        .modal-image {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            object-fit: contain;
+        }
+
+        .modal-details {
+            flex: 2;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .specs-table th {
+            background-color: var(--bg-color);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .modal-actions {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-modal-cart {
+            padding: 12px 25px;
+            background-color: var(--text-main);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-modal-cart:hover {
+            background-color: var(--accent-color);
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* =========================================
+           7. FOOTER
+           ========================================= */
+        .footer {
+            background-color: var(--text-main);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* =========================================
+           8. CHATBOT
+           ========================================= */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--whatsapp-green);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 2000;
+            transition: transform 0.3s;
+        }
+
+        .chatbot:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-icon {
+            font-size: 28px;
+            color: white;
+        }
+
+        /* =========================================
+           9. THEME SWITCHER
+           ========================================= */
+        .theme-toggler {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .theme-options {
+            display: none;
+            gap: 10px;
+        }
+
+        .theme-toggler:hover .theme-options { display: flex; }
+
+        .color-dot {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* =========================================
+           10. CART MODAL
+           ========================================= */
+        .cart-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2001;
+            display: none;
+            justify-content: flex-end;
+        }
+
+        .cart-overlay.open { display: flex; }
+
+        .cart-panel {
+            background: white;
+            width: 400px;
+            max-width: 90%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.3s;
+        }
+
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+        .cart-header {
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            background: #f1f1f1;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--whatsapp-green);
+            color: white;
+            padding: 15px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .header-actions { margin-top: 10px; }
+            .modal-body { flex-direction: column; }
+            .footer-content { flex-direction: column; }
+            .modal-header { flex-direction: column; gap: 15px; }
+            .modal-actions { flex-direction: column; gap: 10px; }
+            .btn-modal-cart { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- THEME SWITCHER -->
+    <div class="theme-toggler">
+        <span>🎨 Theme</span>
+        <div class="theme-options">
+            <!-- Blue/Orange -->
+            <div class="color-dot" style="background:#0056b3;" onclick="setTheme('#0056b3', '#ff9900')"></div>
+            <!-- Red/Black (ShopIQ style) -->
+            <div class="color-dot" style="background:#ed1c24;" onclick="setTheme('#ed1c24', '#222222')"></div>
+            <!-- Purple/Green -->
+            <div class="color-dot" style="background:#6a1b9a;" onclick="setTheme('#6a1b9a', '#00e676')"></div>
+            <!-- Teal/Gold -->
+            <div class="color-dot" style="background:#00897b;" onclick="setTheme('#00897b', '#fbc02d')"></div>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot" onclick="openWhatsAppChat()" title="Chat with us on WhatsApp">
+        <div class="chatbot-icon">💬</div>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="top-banner">
+        <span>📞 Call: 0714227080</span>
+        <span>🚚 Countrywide Delivery</span>
+        <span>🛡️ Authorized Dealer: TCL, Hisense, HP, Samsung</span>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="switchTab('home')">Rosmatt <span>Kenya</span></a>
+            <nav>
+                <ul>
+                    <li><a class="active" onclick="switchTab('home')">Shop</a></li>
+                    <li><a onclick="switchTab('about')">About Founder</a></li>
+                    <li><a onclick="switchTab('terms')">Terms</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="tel:+254714227080" class="btn-call">📞 Call Now</a>
+                <div class="cart-trigger" onclick="toggleCart()">
+                    🛒 <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CATEGORIES NAVIGATION -->
+    <div class="categories-nav">
+        <a href="#cat-tvs">Smart TVs & Audio</a>
+        <a href="#cat-phones">Smartphones</a>
+        <a href="#cat-kitchen">Kitchen & Home Appliances</a>
+        <a href="#cat-laptops">Laptops & Computing</a>
+    </div>
+
+    <!-- =========================================
+         HOME TAB
+         ========================================= -->
+    <div id="home" class="tab-content active">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Upgrade Your Lifestyle</h1>
+            <p>Deals on Smart TVs, MKOPA Phones, Fridges & Laptops. Real Prices. Real Quality.</p>
+            <a href="#cat-tvs" class="btn-hero">START SHOPPING</a>
+        </section>
+
+        <!-- CATEGORY 1: TVs & AUDIO -->
+        <div class="section-container" id="cat-tvs">
+            <div class="category-header">
+                <h2>📺 Smart TVs & Audio Systems</h2>
+                <small>Partners: TCL, Hisense, Vitron, Globalstar</small>
+            </div>
+
+            <!-- ADVERTISEMENT VIDEO AREA -->
+            <div class="ad-video-wrapper">
+                 <!-- Replace the src below with your actual video clip URL or local file path -->
+                 <!-- Example: <video src="my_tv_ad.mp4" controls muted autoplay loop></video> -->
+                <div class="ad-placeholder-text">🎥 Your TV Promo Video Here</div>
+            </div>
+
+            <div class="product-grid">
+                <!-- 20 TV Products -->
+                <div class="product-card" onclick="openProductModal('Vitron 32\" Frameless Smart TV', 12500, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60', 'Vitron', 'Perfect for small spaces with Android TV OS, built-in WiFi, and HDMI ports. Includes remote control and wall mount.', {Resolution: '1366x768', ScreenType: 'LED', Smart: 'Yes', Ports: '2 HDMI, 2 USB', Warranty: '1 year'})">
+                    <span class="badge-offer">-15% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Vitron TV">
+                    <div class="product-info">
+                        <div class="brand">Vitron</div>
+                        <h3>Vitron 32" Frameless Smart TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 12,500</span>
+                            <span class="old-price">KSh 14,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Vitron 32in Smart TV', 12500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Hisense 43\" A6 Series 4K UHD', 34000, 'https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60', 'Hisense', '4K UHD resolution with HDR10, built-in Roku TV, 3 HDMI ports, and Bluetooth audio support.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes (Roku)', Ports: '3 HDMI, 2 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Hisense TV">
+                    <div class="product-info">
+                        <div class="brand">Hisense</div>
+                        <h3>Hisense 43\" A6 Series 4K UHD</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 34,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Hisense 43in 4K TV', 34000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('TCL 55\" P635 4K Google TV', 58500, 'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60', 'TCL', 'Featuring Dolby Vision IQ, Google Assistant, 4K HDR Pro, and MEMC technology for smooth motion.', {Resolution: '3840x2160', ScreenType: 'QLED', Smart: 'Yes (Google TV)', Ports: '3 HDMI, 2 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="TCL TV">
+                    <div class="product-info">
+                        <div class="brand">TCL</div>
+                        <h3>TCL 55\" P635 4K Google TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 58,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('TCL 55in Google TV', 58500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Globalstar 32\" Digital LED TV', 9500, 'https://images.unsplash.com/photo-1558882224-dda166733046?auto=format&fit=crop&w=500&q=60', 'Globalstar', 'Basic digital TV with multiple inputs, ideal for bedrooms and small living spaces.', {Resolution: '1366x768', ScreenType: 'LED', Smart: 'No', Ports: '1 HDMI, 1 USB', Warranty: '1 year'})">
+                    <span class="badge-offer">HOT DEAL</span>
+                    <img src="https://images.unsplash.com/photo-1558882224-dda166733046?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Globalstar TV">
+                    <div class="product-info">
+                        <div class="brand">Globalstar</div>
+                        <h3>Globalstar 32\" Digital LED TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 9,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Globalstar 32in Digital TV', 9500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Sony S20R 5.1ch Soundbar 400W', 28000, 'https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60', 'Sony', 'Powerful 5.1 channel surround sound system with wireless subwoofer for immersive audio experience.', {Channels: '5.1', Power: '400W RMS', Connectivity: 'HDMI ARC, Bluetooth', Subwoofer: 'Wireless', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Sony HT">
+                    <div class="product-info">
+                        <div class="brand">Sony</div>
+                        <h3>Sony S20R 5.1ch Soundbar</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 28,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Sony S20R Soundbar', 28000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Vitron V636 2.1ch Subwoofer', 6500, 'https://images.unsplash.com/photo-1615591321712-45e54d3d2245?auto=format&fit=crop&w=500&q=60', 'Vitron', 'Compact 2.1 channel system with powerful bass and clear audio for movies and music.', {Channels: '2.1', Power: '200W RMS', Connectivity: 'Bluetooth, AUX', Subwoofer: 'Wired', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1615591321712-45e54d3d2245?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Subwoofer">
+                    <div class="product-info">
+                        <div class="brand">Vitron</div>
+                        <h3>Vitron V636 2.1ch Subwoofer</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 6,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Vitron V636 Subwoofer', 6500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Additional TV Products -->
+                <div class="product-card" onclick="openProductModal('Samsung 50\" Crystal UHD 4K', 45000, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60', 'Samsung', 'Crystal UHD processor with PurColor and HDR for vibrant images and clear details.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes (Tizen)', Ports: '3 HDMI, 2 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung TV">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung 50\" Crystal UHD 4K</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 45,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung 50in Crystal UHD', 45000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Hisense 55\" A6500F 4K', 50000, 'https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60', 'Hisense', 'Quantum Dot technology with Dolby Vision and Atmos for cinema-like experience.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes (Vidaa)', Ports: '4 HDMI, 3 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Hisense TV">
+                    <div class="product-info">
+                        <div class="brand">Hisense</div>
+                        <h3>Hisense 55\" A6500F 4K</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 50,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Hisense 55in A6500F', 50000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('TCL 43\" C635 QLED', 38000, 'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60', 'TCL', 'QLED display with Mini-LED backlighting and Dolby Vision IQ for exceptional contrast.', {Resolution: '3840x2160', ScreenType: 'QLED', Smart: 'Yes (Google TV)', Ports: '3 HDMI, 2 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="TCL TV">
+                    <div class="product-info">
+                        <div class="brand">TCL</div>
+                        <h3>TCL 43\" C635 QLED</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 38,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('TCL 43in C635 QLED', 38000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('LG 43\" UQ7500 4K', 36000, 'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60', 'LG', 'webOS smart platform with α5 Gen5 AI Processor for enhanced picture and sound.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes (webOS)', Ports: '3 HDMI, 2 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="LG TV">
+                    <div class="product-info">
+                        <div class="brand">LG</div>
+                        <h3>LG 43\" UQ7500 4K</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 36,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('LG 43in UQ7500', 36000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Continue with 10 more TV products -->
+                <div class="product-card" onclick="openProductModal('Vitron 65\" 4K Smart TV', 75000, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60', 'Vitron', 'Large screen entertainment with built-in streaming apps and voice remote.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes', Ports: '3 HDMI, 2 USB', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Vitron TV">
+                    <div class="product-info">
+                        <div class="brand">Vitron</div>
+                        <h3>Vitron 65\" 4K Smart TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 75,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Vitron 65in 4K TV', 75000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Hisense 65\" U6H QLED', 85000, 'https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60', 'Hisense', 'Quantum Dot technology with 120Hz refresh rate for smooth motion.', {Resolution: '3840x2160', ScreenType: 'QLED', Smart: 'Yes (Vidaa)', Ports: '4 HDMI, 3 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Hisense TV">
+                    <div class="product-info">
+                        <div class="brand">Hisense</div>
+                        <h3>Hisense 65\" U6H QLED</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 85,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Hisense 65in U6H', 85000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('TCL 75\" C835 QLED', 150000, 'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60', 'TCL', 'Mini-LED backlighting with Dolby Vision IQ and IMAX Enhanced for home cinema.', {Resolution: '3840x2160', ScreenType: 'QLED', Smart: 'Yes (Google TV)', Ports: '4 HDMI, 3 USB', Warranty: '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="TCL TV">
+                    <div class="product-info">
+                        <div class="brand">TCL</div>
+                        <h3>TCL 75\" C835 QLED</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 150,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('TCL 75in C835', 150000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Sony HT-S2000 Soundbar', 45000, 'https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60', 'Sony', '360 Spatial Sound Mapping with 360 Reality Audio for immersive surround sound.', {Channels: '9.1.4', Power: '400W RMS', Connectivity: 'HDMI eARC, Bluetooth', Subwoofer: 'Wireless', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Sony Soundbar">
+                    <div class="product-info">
+                        <div class="brand">Sony</div>
+                        <h3>Sony HT-S2000 Soundbar</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 45,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Sony HT-S2000', 45000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Bose Soundbar 700', 65000, 'https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60', 'Bose', 'Premium soundbar with built-in voice assistants and ADAPTiQ audio calibration.', {Channels: '5.0', Power: 'N/A', Connectivity: 'HDMI eARC, Bluetooth, WiFi', Subwoofer: 'Separate purchase', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Bose Soundbar">
+                    <div class="product-info">
+                        <div class="brand">Bose</div>
+                        <h3>Bose Soundbar 700</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 65,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Bose Soundbar 700', 65000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Samsung HW-Q800B Soundbar', 55000, 'https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60', 'Samsung', 'Dolby Atmos and DTS:X support with wireless subwoofer and rear speakers.', {Channels: '5.1.2', Power: 'N/A', Connectivity: 'HDMI eARC, Bluetooth', Subwoofer: 'Wireless', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1545459720-aacfb5090334?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung Soundbar">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung HW-Q800B Soundbar</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 55,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung HW-Q800B', 55000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Globalstar 43\" 4K Smart TV', 22000, 'https://images.unsplash.com/photo-1558882224-dda166733046?auto=format&fit=crop&w=500&q=60', 'Globalstar', 'Budget-friendly 4K TV with built-in streaming apps.', {Resolution: '3840x2160', ScreenType: 'LED', Smart: 'Yes', Ports: '2 HDMI, 1 USB', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1558882224-dda166733046?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Globalstar TV">
+                    <div class="product-info">
+                        <div class="brand">Globalstar</div>
+                        <h3>Globalstar 43\" 4K Smart TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 22,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Globalstar 43in 4K', 22000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Vitron 40\" HD Ready TV', 14000, 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60', 'Vitron', 'Basic HD TV for everyday viewing with multiple input options.', {Resolution: '1366x768', ScreenType: 'LED', Smart: 'No', Ports: '1 HDMI, 1 USB', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Vitron TV">
+                    <div class="product-info">
+                        <div class="brand">Vitron</div>
+                        <h3>Vitron 40\" HD Ready TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 14,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Vitron 40in HD', 14000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Hisense 32\" H32BE5500 Smart TV', 16000, 'https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60', 'Hisense', 'Compact smart TV with Roku TV for streaming your favorite content.', {Resolution: '1366x768', ScreenType: 'LED', Smart: 'Yes (Roku)', Ports: '2 HDMI, 1 USB', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1601944179066-29786cb9d32a?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Hisense TV">
+                    <div class="product-info">
+                        <div class="brand">Hisense</div>
+                        <h3>Hisense 32\" H32BE5500</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 16,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Hisense 32in H32BE5500', 16000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('TCL 32\" L32M5 Smart TV', 13500, 'https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60', 'TCL', 'Entry-level smart TV with Android TV for streaming and gaming.', {Resolution: '1366x768', ScreenType: 'LED', Smart: 'Yes (Android)', Ports: '2 HDMI, 1 USB', Warranty: '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1552975084-6e027cd345c2?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="TCL TV">
+                    <div class="product-info">
+                        <div class="brand">TCL</div>
+                        <h3>TCL 32\" L32M5 Smart TV</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 13,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('TCL 32in L32M5', 13500)">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2: SMARTPHONES (MKOPA) -->
+        <div class="section-container" id="cat-phones">
+            <div class="category-header">
+                <h2>📱 Smartphones (MKOPA Available)</h2>
+                <small>Brands: Samsung, Nokia, Xiaomi, Tecno</small>
+            </div>
+
+            <!-- VIDEO AREA -->
+            <div class="ad-video-wrapper">
+                <div class="ad-placeholder-text">🎥 Your Phone Promo Video Here</div>
+            </div>
+
+            <div class="product-grid">
+                <!-- 20 Phone Products -->
+                <div class="product-card" onclick="openProductModal('Samsung Galaxy A15 (4GB/64GB)', 21500, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60', 'Samsung', '6.5-inch Super AMOLED display, 5000mAh battery, and triple rear camera system.', {'Display': '6.5\" Super AMOLED', 'Camera': '50MP+5MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 14', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung A15">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung Galaxy A15 (4GB/64GB)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 21,500</span>
+                            <br><small style="color:green;">Deposit: KSh 4,500</small>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung A15', 21500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Nokia G21 (4GB/128GB)', 18000, 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60', 'Nokia', '6.5-inch display with 90Hz refresh rate, 5050mAh battery, and 3-day battery life.', {'Display': '6.5\" LCD 90Hz', 'Camera': '50MP+2MP+2MP', 'Battery': '5050mAh', 'OS': 'Android 11', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Phone">
+                    <div class="product-info">
+                        <div class="brand">Nokia</div>
+                        <h3>Nokia G21 (4GB/128GB)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 18,000</span>
+                            <br><small style="color:green;">Deposit: KSh 3,500</small>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Nokia G21', 18000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Redmi Note 13 (6GB/128GB)', 25000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Xiaomi', '6.67-inch AMOLED display, 108MP main camera, and 5000mAh battery with 67W charging.', {'Display': '6.67\" AMOLED', 'Camera': '108MP+8MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Xiaomi">
+                    <div class="product-info">
+                        <div class="brand">Xiaomi</div>
+                        <h3>Redmi Note 13 (6GB/128GB)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 25,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Redmi Note 13', 25000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Tecno Spark 10C', 15500, 'https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60', 'Tecno', '6.6-inch HD+ display, 8MP main camera, and 5000mAh battery with 10W charging.', {'Display': '6.6\" LCD', 'Camera': '8MP+AI lens', 'Battery': '5000mAh', 'OS': 'Android 12', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Tecno">
+                    <div class="product-info">
+                        <div class="brand">Tecno</div>
+                        <h3>Tecno Spark 10C</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 15,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Tecno Spark 10C', 15500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Additional Phone Products -->
+                <div class="product-card" onclick="openProductModal('Samsung Galaxy S23 Ultra', 180000, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60', 'Samsung', '6.8-inch Dynamic AMOLED 2X, 200MP camera, S Pen included, and 5000mAh battery.', {'Display': '6.8\" AMOLED 120Hz', 'Camera': '200MP+12MP+10MP+10MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung S23">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung Galaxy S23 Ultra</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 180,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung S23 Ultra', 180000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('iPhone 14 Pro Max', 195000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Apple', '6.7-inch Super Retina XDR, Dynamic Island, 48MP main camera, and A16 Bionic chip.', {'Display': '6.7\" OLED 120Hz', 'Camera': '48MP+12MP+12MP', 'Battery': '4323mAh', 'OS': 'iOS 16', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="iPhone">
+                    <div class="product-info">
+                        <div class="brand">Apple</div>
+                        <h3>iPhone 14 Pro Max</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 195,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('iPhone 14 Pro Max', 195000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Xiaomi 13 Pro', 120000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Xiaomi', '6.73-inch AMOLED, Leica optics, 50MP main camera, and 4820mAh battery with 120W charging.', {'Display': '6.73\" AMOLED 120Hz', 'Camera': '50MP+50MP+50MP', 'Battery': '4820mAh', 'OS': 'Android 13', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Xiaomi 13">
+                    <div class="product-info">
+                        <div class="brand">Xiaomi</div>
+                        <h3>Xiaomi 13 Pro</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 120,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Xiaomi 13 Pro', 120000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Tecno Camon 20 Pro', 35000, 'https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60', 'Tecno', '6.67-inch AMOLED, 50MP main camera with gimbal stabilization, and 5000mAh battery.', {'Display': '6.67\" AMOLED 120Hz', 'Camera': '50MP+2MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Tecno Camon">
+                    <div class="product-info">
+                        <div class="brand">Tecno</div>
+                        <h3>Tecno Camon 20 Pro</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 35,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Tecno Camon 20 Pro', 35000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Nokia C32', 12500, 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60', 'Nokia', '6.5-inch HD+ display, 13MP main camera, and 5000mAh battery with Android Go edition.', {'Display': '6.5\" LCD', 'Camera': '13MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 12 Go', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Nokia C32">
+                    <div class="product-info">
+                        <div class="brand">Nokia</div>
+                        <h3>Nokia C32</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 12,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Nokia C32', 12500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Samsung Galaxy A04s', 16500, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60', 'Samsung', '6.5-inch PLS LCD, 50MP main camera, and 5000mAh battery with 15W charging.', {'Display': '6.5\" LCD 90Hz', 'Camera': '50MP+2MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 12', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung A04s">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung Galaxy A04s</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 16,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung A04s', 16500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Continue with 10 more phone products -->
+                <div class="product-card" onclick="openProductModal('Xiaomi Redmi 12', 18000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Xiaomi', '6.79-inch FHD+ display, 50MP main camera, and 5000mAh battery with 18W charging.', {'Display': '6.79\" LCD 90Hz', 'Camera': '50MP+8MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Redmi 12">
+                    <div class="product-info">
+                        <div class="brand">Xiaomi</div>
+                        <h3>Xiaomi Redmi 12</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 18,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Xiaomi Redmi 12', 18000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Tecno Pop 7 Pro', 11000, 'https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60', 'Tecno', '6.6-inch HD+ display, 8MP main camera, and 5000mAh battery with 10W charging.', {'Display': '6.6\" LCD', 'Camera': '8MP+AI lens', 'Battery': '5000mAh', 'OS': 'Android 12 Go', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Tecno Pop">
+                    <div class="product-info">
+                        <div class="brand">Tecno</div>
+                        <h3>Tecno Pop 7 Pro</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 11,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Tecno Pop 7 Pro', 11000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Nokia G42', 22000, 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60', 'Nokia', '6.56-inch HD+ display, 50MP main camera with OIS, and 5000mAh battery.', {'Display': '6.56\" LCD 90Hz', 'Camera': '50MP+2MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '2 years'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Nokia G42">
+                    <div class="product-info">
+                        <div class="brand">Nokia</div>
+                        <h3>Nokia G42</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 22,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Nokia G42', 22000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Samsung Galaxy A24', 24000, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60', 'Samsung', '6.5-inch Super AMOLED, 50MP main camera, and 5000mAh battery with 25W charging.', {'Display': '6.5\" AMOLED 90Hz', 'Camera': '50MP+5MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '2 years'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung A24">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung Galaxy A24</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 24,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung A24', 24000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Xiaomi Poco X5 Pro', 32000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Xiaomi', '6.67-inch AMOLED, 108MP main camera, and 5000mAh battery with 67W charging.', {'Display': '6.67\" AMOLED 120Hz', 'Camera': '108MP+8MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 12', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Poco X5">
+                    <div class="product-info">
+                        <div class="brand">Xiaomi</div>
+                        <h3>Xiaomi Poco X5 Pro</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 32,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Poco X5 Pro', 32000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Tecno Spark 10 Pro', 20000, 'https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60', 'Tecno', '6.8-inch FHD+ display, 50MP main camera with dual flash, and 5000mAh battery.', {'Display': '6.8\" LCD 90Hz', 'Camera': '50MP+0.08MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Tecno Spark">
+                    <div class="product-info">
+                        <div class="brand">Tecno</div>
+                        <h3>Tecno Spark 10 Pro</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 20,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Tecno Spark 10 Pro', 20000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Nokia C22', 10500, 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60', 'Nokia', '6.5-inch HD+ display, 8MP main camera, and 5000mAh battery with Android Go edition.', {'Display': '6.5\" LCD', 'Camera': '8MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 12 Go', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Nokia C22">
+                    <div class="product-info">
+                        <div class="brand">Nokia</div>
+                        <h3>Nokia C22</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 10,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Nokia C22', 10500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Samsung Galaxy A14 5G', 23000, 'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60', 'Samsung', '6.6-inch PLS LCD, 50MP main camera, and 5000mAh battery with 15W charging.', {'Display': '6.6\" LCD 90Hz', 'Camera': '50MP+2MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 13', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Samsung A14">
+                    <div class="product-info">
+                        <div class="brand">Samsung</div>
+                        <h3>Samsung Galaxy A14 5G</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 23,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Samsung A14 5G', 23000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Xiaomi Redmi 12C', 15000, 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60', 'Xiaomi', '6.71-inch HD+ display, 50MP main camera, and 5000mAh battery with 10W charging.', {'Display': '6.71\" LCD', 'Camera': '50MP+2MP', 'Battery': '5000mAh', 'OS': 'Android 12', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Redmi 12C">
+                    <div class="product-info">
+                        <div class="brand">Xiaomi</div>
+                        <h3>Xiaomi Redmi 12C</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 15,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Xiaomi Redmi 12C', 15000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Tecno Spark Go 2023', 13000, 'https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60', 'Tecno', '6.1-inch HD+ display, 8MP main camera, and 5000mAh battery with 10W charging.', {'Display': '6.1\" LCD', 'Camera': '8MP+AI lens', 'Battery': '5000mAh', 'OS': 'Android 12 Go', 'Warranty': '1 year'})">
+                    <span class="badge-mkopa">MKOPA AVAILABLE</span>
+                    <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Tecno Spark Go">
+                    <div class="product-info">
+                        <div class="brand">Tecno</div>
+                        <h3>Tecno Spark Go 2023</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 13,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Tecno Spark Go 2023', 13000)">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 3: KITCHENWARE -->
+        <div class="section-container" id="cat-kitchen">
+            <div class="category-header">
+                <h2>🍳 Kitchen & Home Appliances</h2>
+                <small>Ailyons, Ramtons, Von</small>
+            </div>
+            
+            <div class="ad-video-wrapper">
+                <div class="ad-placeholder-text">🎥 Your Kitchen Promo Video Here</div>
+            </div>
+
+            <div class="product-grid">
+                <!-- 20 Kitchen Products -->
+                <div class="product-card" onclick="openProductModal('Ailyons Single Door Fridge 90L', 18500, 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60', 'Ailyons', '90L capacity, energy efficient, with adjustable shelves and vegetable crisper.', {'Capacity': '90L', 'Type': 'Single Door', 'Energy Rating': '3-star', 'Color': 'White', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Fridge">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Single Door Fridge 90L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 18,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons 90L Fridge', 18500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von 2-in-1 Blender 500W', 4500, 'https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60', 'Von', '500W motor with 2 blending speeds, 1.5L jar, and stainless steel blades.', {'Power': '500W', 'Capacity': '1.5L', 'Speeds': '2', 'Material': 'Plastic/Stainless Steel', 'Warranty': '6 months'})">
+                    <img src="https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Blender">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von 2-in-1 Blender 500W</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 4,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von Blender 500W', 4500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons 2 Burner Table Top', 3200, 'https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60', 'Ramtons', 'Compact 2-burner gas cooker with automatic ignition and cast iron supports.', {'Burners': '2', 'Ignition': 'Automatic', 'Material': 'Steel', 'Color': 'Black', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Cooker">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons 2 Burner Table Top</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 3,200</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons 2 Burner', 3200)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Additional Kitchen Products -->
+                <div class="product-card" onclick="openProductModal('Ailyons Double Door Fridge 200L', 32000, 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60', 'Ailyons', '200L capacity with separate freezer compartment, energy efficient design.', {'Capacity': '200L', 'Type': 'Double Door', 'Energy Rating': '3-star', 'Color': 'Silver', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Fridge">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Double Door Fridge 200L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 32,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons 200L Fridge', 32000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von Microwave Oven 20L', 8500, 'https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60', 'Von', '700W microwave with 5 power levels, defrost function, and digital display.', {'Capacity': '20L', 'Power': '700W', 'Functions': '5 levels + defrost', 'Color': 'Silver', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Microwave">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Microwave Oven 20L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 8,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von 20L Microwave', 8500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons Electric Kettle 1.7L', 2500, 'https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60', 'Ramtons', '1500W rapid boil, automatic shut-off, and boil-dry protection.', {'Capacity': '1.7L', 'Power': '1500W', 'Material': 'Stainless Steel', 'Color': 'Silver', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Kettle">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons Electric Kettle 1.7L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 2,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons 1.7L Kettle', 2500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ailyons Washing Machine 7kg', 28000, 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60', 'Ailyons', '7kg capacity top loader with 6 wash programs and spin speed up to 680 RPM.', {'Capacity': '7kg', 'Type': 'Top Load', 'Programs': '6', 'Spin Speed': '680 RPM', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Washing Machine">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Washing Machine 7kg</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 28,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons 7kg Washing Machine', 28000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von Coffee Maker', 4000, 'https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60', 'Von', '8-cup capacity, programmable timer, and permanent filter.', {'Capacity': '8 cups', 'Material': 'Glass/Stainless Steel', 'Features': 'Programmable, Auto shut-off', 'Color': 'Black', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Coffee Maker">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Coffee Maker</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 4,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von Coffee Maker', 4000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons Iron 1200W', 1800, 'https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60', 'Ramtons', '1200W dry iron with temperature control and non-stick soleplate.', {'Power': '1200W', 'Type': 'Dry Iron', 'Soleplate': 'Non-stick', 'Color': 'Purple', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Iron">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons Iron 1200W</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 1,800</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons 1200W Iron', 1800)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ailyons Cooker Hood', 12000, 'https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60', 'Ailyons', 'Wall-mounted cooker hood with 3-speed settings and LED lighting.', {'Type': 'Wall-mounted', 'Speeds': '3', 'Lighting': 'LED', 'Color': 'Silver', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Cooker Hood">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Cooker Hood</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 12,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons Cooker Hood', 12000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Continue with 10 more kitchen products -->
+                <div class="product-card" onclick="openProductModal('Von Toaster 2-Slice', 2200, 'https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60', 'Von', '2-slice toaster with 6 browning levels, defrost function, and cancel button.', {'Slices': '2', 'Browning Levels': '6', 'Features': 'Defrost, Cancel', 'Color': 'Silver', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Toaster">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Toaster 2-Slice</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 2,200</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von 2-Slice Toaster', 2200)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons Deep Fryer 3L', 5500, 'https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60', 'Ramtons', '3L capacity with adjustable thermostat, cool-touch handles, and viewing window.', {'Capacity': '3L', 'Power': '1700W', 'Features': 'Thermostat, Viewing window', 'Color': 'Black', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1611510410841-4b4d6d540c3e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Fryer">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons Deep Fryer 3L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 5,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons 3L Fryer', 5500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ailyons Dishwasher', 45000, 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60', 'Ailyons', '6-place setting dishwasher with 6 wash programs and energy efficient design.', {'Place Settings': '6', 'Programs': '6', 'Energy Rating': '3-star', 'Color': 'White', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dishwasher">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Dishwasher</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 45,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons Dishwasher', 45000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von Food Processor', 6000, 'https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60', 'Von', '800W motor with multiple attachments for chopping, slicing, and blending.', {'Power': '800W', 'Capacity': '3L', 'Attachments': '4', 'Material': 'Plastic/Stainless Steel', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Food Processor">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Food Processor</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 6,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von Food Processor', 6000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons Electric Fry Pan', 3800, 'https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60', 'Ramtons', '30cm non-stick surface with adjustable thermostat for precise cooking control.', {'Size': '30cm', 'Power': '1500W', 'Features': 'Thermostat, Non-stick', 'Color': 'Black', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Fry Pan">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons Electric Fry Pan</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 3,800</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons Electric Fry Pan', 3800)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ailyons Electric Oven', 18000, 'https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60', 'Ailyons', '45L capacity with 6 heating functions, digital timer, and rotisserie.', {'Capacity': '45L', 'Power': '1800W', 'Functions': '6', 'Features': 'Digital Timer, Rotisserie', 'Warranty': '2 years'})">
+                    <img src="https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Oven">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Electric Oven</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 18,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons 45L Oven', 18000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von Juicer', 3500, 'https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60', 'Von', '400W motor with 2 speed settings and large feed chute for whole fruits.', {'Power': '400W', 'Speeds': '2', 'Capacity': '1L', 'Material': 'Plastic/Stainless Steel', 'Warranty': '6 months'})">
+                    <img src="https://images.unsplash.com/photo-1570222094114-28a9d88a275e?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Juicer">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Juicer</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 3,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von Juicer', 3500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ramtons Rice Cooker 1.8L', 4200, 'https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60', 'Ramtons', '1.8L capacity with non-stick pot, keep-warm function, and measuring cup.', {'Capacity': '1.8L', 'Power': '700W', 'Features': 'Keep-warm, Non-stick', 'Color': 'White', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1604007912280-11d4e6a4d69f?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Rice Cooker">
+                    <div class="product-info">
+                        <div class="brand">Ramtons</div>
+                        <h3>Ramtons Rice Cooker 1.8L</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 4,200</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ramtons 1.8L Rice Cooker', 4200)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Ailyons Vacuum Cleaner', 15000, 'https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60', 'Ailyons', '1600W powerful suction with HEPA filter, 5L dust capacity, and multiple attachments.', {'Power': '1600W', 'Capacity': '5L', 'Filter': 'HEPA', 'Attachments': '4', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Vacuum">
+                    <div class="product-info">
+                        <div class="brand">Ailyons</div>
+                        <h3>Ailyons Vacuum Cleaner</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 15,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Ailyons Vacuum Cleaner', 15000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Von Electric Grill', 5000, 'https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60', 'Von', '1500W indoor grill with adjustable thermostat and non-stick cooking plates.', {'Power': '1500W', 'Area': '280 cm²', 'Features': 'Thermostat, Non-stick plates', 'Color': 'Black', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1626143541742-960909099953?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Grill">
+                    <div class="product-info">
+                        <div class="brand">Von</div>
+                        <h3>Von Electric Grill</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 5,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Von Electric Grill', 5000)">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CATEGORY 4: LAPTOPS -->
+        <div class="section-container" id="cat-laptops">
+            <div class="category-header">
+                <h2>💻 Laptops & Computing</h2>
+                <small>HP, Lenovo, Dell (Refurbished & New)</small>
+            </div>
+            
+            <div class="ad-video-wrapper">
+                <div class="ad-placeholder-text">🎥 Your Laptop Promo Video Here</div>
+            </div>
+
+            <div class="product-grid">
+                <!-- 20 Laptop Products -->
+                <div class="product-card" onclick="openProductModal('HP EliteBook 840 G3 (Refurb)', 23500, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'Refurbished business laptop with Intel i5, 8GB RAM, 256GB SSD, and Windows 10 Pro.', {'Processor': 'Intel i5-6300U', 'RAM': '8GB', 'Storage': '256GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <span class="badge-offer">BESTSELLER</span>
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP Laptop">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP EliteBook 840 G3 (Refurb, i5)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 23,500</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP EliteBook 840 G3', 23500)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo ThinkPad X260 (Refurb)', 19000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'Refurbished ultraportable with Intel i5, 8GB RAM, 256GB SSD, and legendary ThinkPad durability.', {'Processor': 'Intel i5-6300U', 'RAM': '8GB', 'Storage': '256GB SSD', 'Display': '12.5\" HD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Lenovo">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo ThinkPad X260 (Refurb, i5)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 19,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo ThinkPad X260', 19000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell Vostro 3510 Core i3 11th Gen', 48000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'New laptop with 11th Gen Intel i3, 8GB RAM, 512GB SSD, and 15.6\" FHD display.', {'Processor': 'Intel i3-1115G4', 'RAM': '8GB', 'Storage': '512GB SSD', 'Display': '15.6\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <span class="badge-offer">NEW</span>
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell Vostro 3510 Core i3 11th Gen</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 48,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell Vostro 3510', 48000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Additional Laptop Products -->
+                <div class="product-card" onclick="openProductModal('HP Pavilion 15 (New)', 55000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'New laptop with Intel i5-1135G7, 8GB RAM, 512GB SSD, and 15.6\" FHD display.', {'Processor': 'Intel i5-1135G7', 'RAM': '8GB', 'Storage': '512GB SSD', 'Display': '15.6\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP Pavilion">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP Pavilion 15 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 55,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP Pavilion 15', 55000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo IdeaPad 3', 42000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'AMD Ryzen 5 5500U, 8GB RAM, 512GB SSD, and 15.6\" FHD display.', {'Processor': 'AMD Ryzen 5 5500U', 'RAM': '8GB', 'Storage': '512GB SSD', 'Display': '15.6\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Lenovo IdeaPad">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo IdeaPad 3</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 42,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo IdeaPad 3', 42000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell Inspiron 15 3000', 38000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'Intel Celeron N4020, 4GB RAM, 128GB SSD, and 15.6\" HD display.', {'Processor': 'Intel Celeron N4020', 'RAM': '4GB', 'Storage': '128GB SSD', 'Display': '15.6\" HD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell Inspiron">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell Inspiron 15 3000</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 38,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell Inspiron 15 3000', 38000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('HP EliteBook 840 G5 (Refurb)', 28000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'Refurbished with Intel i5-8350U, 16GB RAM, 512GB SSD, and Windows 10 Pro.', {'Processor': 'Intel i5-8350U', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP EliteBook">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP EliteBook 840 G5 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 28,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP EliteBook 840 G5', 28000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo ThinkPad T480 (Refurb)', 25000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'Refurbished with Intel i5-8250U, 8GB RAM, 256GB SSD, and Windows 10 Pro.', {'Processor': 'Intel i5-8250U', 'RAM': '8GB', 'Storage': '256GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="ThinkPad T480">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo ThinkPad T480 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 25,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo ThinkPad T480', 25000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell Latitude 5420 (Refurb)', 35000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'Refurbished with Intel i5-1145G7, 16GB RAM, 512GB SSD, and Windows 10 Pro.', {'Processor': 'Intel i5-1145G7', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell Latitude">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell Latitude 5420 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 35,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell Latitude 5420', 35000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('HP ProBook 450 G8 (New)', 65000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'New business laptop with Intel i5-1135G7, 16GB RAM, 512GB SSD, and 15.6\" FHD display.', {'Processor': 'Intel i5-1135G7', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '15.6\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP ProBook">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP ProBook 450 G8 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 65,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP ProBook 450 G8', 65000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <!-- Continue with 10 more laptop products -->
+                <div class="product-card" onclick="openProductModal('Lenovo ThinkPad X1 Carbon (Refurb)', 45000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'Refurbished premium ultrabook with Intel i5-8250U, 16GB RAM, 512GB SSD, and 14\" FHD display.', {'Processor': 'Intel i5-8250U', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="ThinkPad X1">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo ThinkPad X1 Carbon (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 45,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo X1 Carbon', 45000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell XPS 13 (Refurb)', 50000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'Refurbished with Intel i5-8250U, 8GB RAM, 256GB SSD, and 13.3\" FHD display.', {'Processor': 'Intel i5-8250U', 'RAM': '8GB', 'Storage': '256GB SSD', 'Display': '13.3\" FHD', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell XPS">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell XPS 13 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 50,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell XPS 13', 50000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('HP Spectre x360 (Refurb)', 52000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'Refurbished premium 2-in-1 with Intel i7-8550U, 16GB RAM, 512GB SSD, and 13.3\" FHD touch display.', {'Processor': 'Intel i7-8550U', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '13.3\" FHD Touch', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP Spectre">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP Spectre x360 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 52,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP Spectre x360', 52000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo Yoga 7i (New)', 70000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'New 2-in-1 with Intel i5-1135G7, 8GB RAM, 512GB SSD, and 14\" FHD touch display.', {'Processor': 'Intel i5-1135G7', 'RAM': '8GB', 'Storage': '512GB SSD', 'Display': '14\" FHD Touch', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Lenovo Yoga">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo Yoga 7i (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 70,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo Yoga 7i', 70000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell Inspiron 14 5000 (New)', 48000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'AMD Ryzen 5 5500U, 8GB RAM, 512GB SSD, and 14\" FHD display.', {'Processor': 'AMD Ryzen 5 5500U', 'RAM': '8GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell Inspiron">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell Inspiron 14 5000 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 48,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell Inspiron 14 5000', 48000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('HP Envy x360 (Refurb)', 42000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'Refurbished 2-in-1 with AMD Ryzen 5 3500U, 8GB RAM, 256GB SSD, and 15.6\" FHD touch display.', {'Processor': 'AMD Ryzen 5 3500U', 'RAM': '8GB', 'Storage': '256GB SSD', 'Display': '15.6\" FHD Touch', 'OS': 'Windows 10 Home', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP Envy">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP Envy x360 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 42,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP Envy x360', 42000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo ThinkBook 14 (New)', 55000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'Intel i5-1135G7, 16GB RAM, 512GB SSD, and 14\" FHD display.', {'Processor': 'Intel i5-1135G7', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="ThinkBook">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo ThinkBook 14 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 55,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo ThinkBook 14', 55000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Dell Vostro 5410 (New)', 68000, 'https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60', 'Dell', 'Intel i5-11300H, 16GB RAM, 512GB SSD, and 14\" FHD display.', {'Processor': 'Intel i5-11300H', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="Dell Vostro">
+                    <div class="product-info">
+                        <div class="brand">Dell</div>
+                        <h3>Dell Vostro 5410 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 68,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Dell Vostro 5410', 68000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('HP EliteBook x360 1040 (Refurb)', 48000, 'https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60', 'HP', 'Refurbished premium 2-in-1 with Intel i7-8650U, 16GB RAM, 512GB SSD, and 14\" FHD touch display.', {'Processor': 'Intel i7-8650U', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD Touch', 'OS': 'Windows 10 Pro', 'Warranty': '3 months'})">
+                    <img src="https://images.unsplash.com/photo-1588872657578-838c329902af?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="HP EliteBook">
+                    <div class="product-info">
+                        <div class="brand">HP</div>
+                        <h3>HP EliteBook x360 1040 (Refurb)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 48,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('HP EliteBook x360', 48000)">ADD TO CART</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="openProductModal('Lenovo ThinkPad L14 (New)', 60000, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60', 'Lenovo', 'AMD Ryzen 5 PRO 4650U, 16GB RAM, 512GB SSD, and 14\" FHD display.', {'Processor': 'AMD Ryzen 5 PRO 4650U', 'RAM': '16GB', 'Storage': '512GB SSD', 'Display': '14\" FHD', 'OS': 'Windows 11', 'Warranty': '1 year'})">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f78536788c6?auto=format&fit=crop&w=500&q=60" loading="lazy" class="product-img" alt="ThinkPad L14">
+                    <div class="product-info">
+                        <div class="brand">Lenovo</div>
+                        <h3>Lenovo ThinkPad L14 (New)</h3>
+                        <div class="price-box">
+                            <span class="current-price">KSh 60,000</span>
+                        </div>
+                        <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart('Lenovo ThinkPad L14', 60000)">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         ABOUT TAB (FOUNDER)
+         ========================================= -->
+    <div id="about" class="tab-content">
+        <div class="section-container">
+            <h2 style="text-align:center; color: var(--primary-color);">Leadership & Vision</h2>
+            <div class="about-grid">
+                <div class="text-content">
+                    <h3>About Rosmatt Kenya</h3>
+                    <p>Rosmatt Kenya is a leading e-commerce platform dedicated to bridging the digital divide in Kenya. We partner with global giants like TCL, Hisense, and Samsung to bring genuine products to your doorstep.</p>
+                    <p>We are authorized agents for MKOPA, allowing flexible payment plans for smartphones to empower every Kenyan.</p>
+                </div>
+                <div class="founder-card">
+                    <!-- Replace src with actual image of Benard -->
+                    <img src="https://placehold.co/400x400?text=Benard+Achila" alt="Benard Achila" class="founder-img">
+                    <h3>Benard Achila</h3>
+                    <p style="color:var(--text-light); font-weight:bold;">Founder & CEO</p>
+                    <p>"At Rosmatt, we don't just sell electronics; we sell trust, quality, and a better lifestyle. Our commitment is to ensure every household in Kenya has access to modern technology."</p>
+                    <a href="tel:0714227080" class="btn-call" style="justify-content:center; margin-top:10px;">Call CEO Office</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         TERMS TAB
+         ========================================= -->
+    <div id="terms" class="tab-content">
+        <div class="section-container" style="background:white; padding:40px; border-radius:10px;">
+            <h1 style="color:var(--primary-color);">Terms and Conditions</h1>
+            <h3>1. Orders & Payment</h3>
+            <p>All orders placed on Rosmatt Kenya are subject to availability. Payment is largely Pay on Delivery within Nairobi and its environs. Upcountry orders may require a deposit.</p>
+            <h3>2. MKOPA Plans</h3>
+            <p>MKOPA devices require a valid National ID and a guarantor. Deposits must be paid directly to the paybill provided by our agents.</p>
+            <h3>3. Returns & Warranty</h3>
+            <p>Electronics come with a 1-year manufacturer warranty (TCL, Hisense, Samsung). Refurbished laptops have a 3-month warranty.</p>
+        </div>
+    </div>
+
+    <!-- =========================================
+         PRODUCT MODAL
+         ========================================= -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Product Details</h2>
+                <button class="close-modal" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-image" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <p id="modal-description"></p>
+                    <h3>Specifications:</h3>
+                    <table class="specs-table" id="modal-specs">
+                        <!-- Specs will be inserted here -->
+                    </table>
+                    <div class="modal-actions">
+                        <div class="modal-price" id="modal-price">KSh 0</div>
+                        <button class="btn-modal-cart" onclick="addToCartFromModal()">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" onclick="switchTab('home')">Home</a></li>
+                    <li><a href="#cat-tvs">Smart TVs & Audio</a></li>
+                    <li><a href="#cat-phones">Smartphones</a></li>
+                    <li><a href="#cat-kitchen">Kitchen Appliances</a></li>
+                    <li><a href="#cat-laptops">Laptops</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="tel:+254714227080">Call Us: 0714227080</a></li>
+                    <li><a href="mailto:info@rosmattkenya.com">Email Us</a></li>
+                    <li><a href="#" onclick="switchTab('terms')">Terms & Conditions</a></li>
+                    <li><a href="#" onclick="openWhatsAppChat()">WhatsApp Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Address</h3>
+                <p>Rosmatt Kenya Ltd,<br>
+                Nairobi, Kenya<br>
+                Authorized Dealer for:<br>
+                TCL, Hisense, HP, Samsung</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div style="display:flex; gap:15px; margin-top:10px;">
+                    <a href="#" style="font-size:24px;">📘</a>
+                    <a href="#" style="font-size:24px;">📸</a>
+                    <a href="#" style="font-size:24px;">🐦</a>
+                    <a href="#" style="font-size:24px;">📺</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>roses are red, violets are blue</p>
+        </div>
+    </footer>
+
+    <!-- =========================================
+         CART MODAL
+         ========================================= -->
+    <div class="cart-overlay" id="cart-modal">
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h3>Shopping Cart</h3>
+                <span style="cursor:pointer; font-size:1.5rem;" onclick="toggleCart()">&times;</span>
+            </div>
+            <div class="cart-body" id="cart-items">
+                <!-- JS Injects items here -->
+                <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-footer">
+                <h3 style="text-align:right;" id="cart-total">Total: KSh 0</h3>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()">COMPLETE ORDER ON WHATSAPP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         JAVASCRIPT LOGIC
+         ========================================= -->
+    <script>
+        // Global variables
+        let cart = [];
+        let currentModalProduct = null;
+
+        // --- 1. THEME SWITCHER LOGIC ---
+        function setTheme(primary, accent) {
+            const root = document.documentElement;
+            root.style.setProperty('--primary-color', primary);
+            root.style.setProperty('--accent-color', accent);
+            // Note: localStorage is not supported in this environment
+        }
+
+        // --- 2. TAB SWITCHING ---
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            window.scrollTo(0,0);
+        }
+
+        // --- 3. PRODUCT MODAL FUNCTIONS ---
+        function openProductModal(title, price, image, brand, description, specs) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-image').src = image;
+            document.getElementById('modal-description').textContent = description;
+            document.getElementById('modal-price').textContent = `KSh ${price.toLocaleString()}`;
+            
+            // Build specs table
+            let specsHtml = '';
+            for (const [key, value] of Object.entries(specs)) {
+                specsHtml += `<tr><th>${key}</th><td>${value}</td></tr>`;
+            }
+            document.getElementById('modal-specs').innerHTML = specsHtml;
+            
+            // Store product info for cart
+            currentModalProduct = { name: title, price: price, brand: brand };
+            
+            document.getElementById('product-modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+            currentModalProduct = null;
+        }
+
+        function addToCartFromModal() {
+            if (currentModalProduct) {
+                addToCart(currentModalProduct.name, currentModalProduct.price);
+                closeProductModal();
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('product-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProductModal();
+            }
+        });
+
+        // --- 4. SHOPPING CART LOGIC ---
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+            }
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartDisplay();
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+            const countEl = document.getElementById('cart-count');
+            
+            countEl.innerText = cart.length;
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="text-align:center; margin-top:20px;">Your cart is empty.</p>';
+                totalEl.innerText = 'Total: KSh 0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                html += `
+                    <div class="cart-item">
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>KSh ${item.price.toLocaleString()}</small>
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="color:red; background:none; border:none; cursor:pointer;">Remove</button>
+                    </div>
+                `;
+            });
+
+            cartContainer.innerHTML = html;
+            totalEl.innerText = 'Total: KSh ' + total.toLocaleString();
+        }
+
+        // --- 5. WHATSAPP CHECKOUT LOGIC ---
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert("Please add items to your cart first.");
+                return;
+            }
+
+            let message = "Hello Rosmatt Kenya, I want to place an order:%0a%0a";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                message += `${i+1}. ${item.name} - KSh ${item.price}%0a`;
+                total += item.price;
+            });
+
+            message += `%0a*TOTAL: KSh ${total.toLocaleString()}*%0a`;
+            message += "-----------------------%0a";
+            message += "My Delivery Location: ";
+
+            const phone = "254714227080"; 
+            const url = `https://wa.me/${phone}?text=${message}`;
+
+            window.open(url, '_blank');
+        }
+
+        // --- 6. INTELLIGENT CHATBOT ---
+        function openWhatsAppChat() {
+            // This function redirects all queries to WhatsApp
+            const message = "Hello Rosmatt Kenya! I have a question about your products/services.";
+            const phone = "254714227080";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Add event listeners for category navigation smooth scrolling
+        document.querySelectorAll('.categories-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close modals when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProductModal();
+                toggleCart();
+            }
+        });
+
+        // Initial cart count update
+        updateCartDisplay();
+    </script>
+</body>
+</html>
+
